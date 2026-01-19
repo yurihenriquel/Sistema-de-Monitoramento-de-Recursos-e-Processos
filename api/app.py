@@ -1,9 +1,5 @@
-from flask import Flask
-from api.routes import metrics_bp
-
-app = Flask(__name__)
-
-app.register_blueprint(metrics_bp)
-
-if __name__ == "__main__":
-    app.run(debug=True)
+@app.route("/metrics", methods=["POST"])
+def receive_metrics():
+    data = request.json
+    save_metrics(data)
+    return {"status": "ok"}, 201

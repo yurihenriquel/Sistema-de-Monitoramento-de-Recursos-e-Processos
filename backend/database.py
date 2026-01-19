@@ -2,7 +2,7 @@ import sqlite3
 from pathlib import Path
 
 BASE_DIR = Path(__file__).resolve().parent
-DB_PATH = BASE_DIR / "metrics.db"
+DB_PATH = "/app/data/metrics.db"
 
 def get_connection():
     return sqlite3.connect(DB_PATH)
