@@ -1,23 +1,9 @@
-version: "3.9"
-
 services:
   api:
     build:
-      context: ./backend
-    container_name: system-monitor-api
+      context: .
+      dockerfile: Dockerfile.api
     ports:
       - "5000:5000"
     volumes:
-      - metrics_data:/app/data
-    depends_on:
-      - collector
-
-  collector:
-    build:
-      context: ./collector
-    container_name: system-monitor-collector
-    volumes:
-      - metrics_data:/app/data
-
-volumes:
-  metrics_data:
+      - ./data:/data
